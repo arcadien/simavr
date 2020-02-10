@@ -258,7 +258,7 @@ static void _avr_usi_di_changed(struct avr_irq_t * irq, uint32_t value, void * p
 {
 	avr_usi_t * p = (avr_usi_t *)param;
 	// avr_t * avr = p->io.avr;
-	DBG(printf("USI ------------------- DI changed to %d at cycle %llu\n",
+	DBG(printf("USI ------------------- DI changed to %d at cycle %lu\n",
 		value,
 		p->io.avr->cycle));
 	p->in_bit0 = value;
@@ -272,7 +272,7 @@ static void _avr_usi_usck_changed(struct avr_irq_t * irq, uint32_t value, void *
 	int up = !irq->value && value;
 	int down = irq->value && !value;
 
-	DBG(printf("USI ------------------- USCK had a %s edge at cycle %llu\n",
+	DBG(printf("USI ------------------- USCK had a %s edge at cycle %lu\n",
 		up ? "rising" : down ? "falling" : "?",
 		avr->cycle));
 
